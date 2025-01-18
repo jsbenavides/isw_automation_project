@@ -1,11 +1,9 @@
 package pageTests;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
 import pages.GoogleMainPage;
 import utilities.WebDriverInstance;
-
+import org.testng.Assert;
 import org.testng.Reporter;
 
 public class GoogleTitleTest extends WebDriverInstance {
