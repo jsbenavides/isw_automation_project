@@ -35,13 +35,16 @@ public class WebDriverInstance {
      */
     @AfterMethod
     public void verifyResults(ITestResult result){
+        String className = result.getTestClass().getName();  // Get the class name
+        String methodName = result.getMethod().getMethodName();  // Get the method name
+
         if (result.getStatus() == ITestResult.SUCCESS) {
-            System.out.println("✅ Test Passed: " + result.getName());
+            System.out.println("✅ Test Passed: " + className + " → " + methodName);
         } else if (result.getStatus() == ITestResult.FAILURE) {
-            System.out.println("❌ Test Failed: " + result.getName());
+            System.out.println("❌ Test Failed: " + className + " → " + methodName);
             System.out.println("Error: " + result.getThrowable());
         } else if (result.getStatus() == ITestResult.SKIP) {
-            System.out.println("⚠️ Test Skipped: " + result.getName());
+            System.out.println("⚠️ Test Skipped: " + className + " → " + methodName);
         }
         //driver.close(); // Cuando deseas cerrar solo una pestaña o ventana específica sin terminar toda la sesión. // En pruebas donde se abren varias ventanas y quieres cerrar solo una.
     }
